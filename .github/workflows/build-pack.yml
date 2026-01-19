@@ -1,0 +1,13 @@
+name: build-pack
+
+on: push
+
+jobs:
+  build-pack-job:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check out repository code
+        uses: actions/checkout@v4
+      - run: echo "$(cat test.txt)"
