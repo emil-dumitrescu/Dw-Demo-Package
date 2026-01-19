@@ -37,8 +37,5 @@ jobs:
         run: dotnet pack src/Commergent.Dw.DemoApp.csproj -c Release --no-build -o ./artifacts /p:PackageVersion=${PACKAGE_VERSION}
 
       - name: Publish to GitHub Packages
-        run: dotnet nuget push "./artifacts/*.nupkg" \
-          --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
-          --api-key "${{ secrets.GITHUB_TOKEN }}" \
-          --skip-duplicate
+        run: dotnet nuget push "./artifacts/*.nupkg" --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key "${{ secrets.GITHUB_TOKEN }}" --skip-duplicate
       
