@@ -1,16 +1,38 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
-
-    <PropertyGroup>
         <PackageId>Commergent.Dw.DemoApp</PackageId>
-        <Version>0.0.0-dev</Version>
+        <Version>1.0.15</Version>
+        <Title>DemoApp</Title>
+        <Description>Custom development</Description>
         <Authors>Emil Dumitrescu</Authors>
         <RepositoryUrl>https://github.com/emil-dumitrescu/Dw-Demo-Package</RepositoryUrl>
     </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageProjectUrl>https://www.commergent.eu</PackageProjectUrl>
+        <PackageTags>dynamicweb-app-store</PackageTags>
+        <Product>DemoApp</Product>
+        <Company>Commergent</Company>
+        <Authors>Commergent</Authors>
+        <Copyright>Copyright © 2026 Commergent</Copyright>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <DebugType>embedded</DebugType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Dynamicweb.Ecommerce" Version="10.10.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="UI\Views\**\*.cshtml" />
+        <EmbeddedResource Include="UI\Views\**\*.cshtml" />
+    </ItemGroup>
 
 </Project>
