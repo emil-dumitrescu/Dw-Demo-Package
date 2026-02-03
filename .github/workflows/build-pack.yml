@@ -65,4 +65,5 @@ jobs:
         run: |
           dotnet nuget push "./artifacts/*.nupkg" \
             --source "MainFeed" \
+            --api-key "Anything" \
             --skip-duplicate
