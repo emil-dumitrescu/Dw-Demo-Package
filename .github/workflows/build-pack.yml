@@ -32,10 +32,7 @@ jobs:
         run: dotnet restore src/Commergent.Dw.DemoApp.sln
 
       - name: Build
-        run: dotnet build src/Commergent.Dw.DemoApp.sln \
-          --no-restore \
-          /p:Configuration=Release \
-          /p:Version=${PACKAGE_VERSION}
+        run: dotnet build src/Commergent.Dw.DemoApp.sln -c Release --no-restore
 
       - name: Pack
         run: dotnet pack src/Commergent.Dw.DemoApp.csproj \
