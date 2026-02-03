@@ -38,8 +38,8 @@ jobs:
         run: |
           dotnet pack src/Commergent.Dw.DemoApp.csproj \
             -c Release \
+            --no-build \
             /p:PackageVersion=${PACKAGE_VERSION} \
-            /p:Version=${PACKAGE_VERSION} \
             -o ./artifacts
 
       - name: Publish to GitHub Packages
