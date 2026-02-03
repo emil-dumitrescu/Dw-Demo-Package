@@ -32,20 +32,19 @@ jobs:
         run: dotnet restore src/Commergent.Dw.DemoApp.sln
 
       - name: Build
-        run: dotnet build \
-          -c Release \
+        run: dotnet build src/Commergent.Dw.DemoApp.sln \
           --no-restore \
-          /p:Version=${PACKAGE_VERSION} \
-          src/Commergent.Dw.DemoApp.sln
+          /p:Configuration=Release \
+          /p:Version=${PACKAGE_VERSION}
 
       - name: Pack
         run: dotnet pack src/Commergent.Dw.DemoApp.csproj \
-          -c Release \
           --no-build \
           --no-restore \
-          -o ./artifacts \
+          /p:Configuration=Release \
           /p:PackageVersion=${PACKAGE_VERSION} \
-          /p:Version=${PACKAGE_VERSION}
+          /p:Version=${PACKAGE_VERSION} \
+          -o ./artifacts
 
       - name: Publish to GitHub Packages
         run: dotnet nuget push "./artifacts/*.nupkg" --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key "${{ secrets.GITHUB_TOKEN }}" --skip-duplicate
