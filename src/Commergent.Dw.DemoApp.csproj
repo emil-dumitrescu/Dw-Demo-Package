@@ -3,6 +3,9 @@
     <PropertyGroup>
         <PackageId>Commergent.Dw.DemoApp</PackageId>
         <Version>1.0.1</Version>
+        <FileVersion>$(Version)</FileVersion>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <InformationalVersion>$(Version)</InformationalVersion>
         <Title>DemoApp</Title>
         <Description>Custom development</Description>
         <Authors>Emil Dumitrescu</Authors>
