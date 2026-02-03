@@ -35,13 +35,12 @@ jobs:
         run: dotnet build src/Commergent.Dw.DemoApp.sln -c Release --no-restore
 
       - name: Pack
-        run: dotnet pack src/Commergent.Dw.DemoApp.csproj \
-          --no-build \
-          --no-restore \
-          /p:Configuration=Release \
-          /p:PackageVersion=${PACKAGE_VERSION} \
-          /p:Version=${PACKAGE_VERSION} \
-          -o ./artifacts
+        run: |
+          dotnet pack src/Commergent.Dw.DemoApp.csproj \
+            -c Release \
+            /p:PackageVersion=${PACKAGE_VERSION} \
+            /p:Version=${PACKAGE_VERSION} \
+            -o ./artifacts
 
       - name: Publish to GitHub Packages
         run: dotnet nuget push "./artifacts/*.nupkg" --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key "${{ secrets.GITHUB_TOKEN }}" --skip-duplicate
