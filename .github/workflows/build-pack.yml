@@ -12,6 +12,7 @@ permissions:
 jobs:
   build-pack:
     runs-on: ubuntu-latest
+    environment: Dev
     
     steps:
       - name: Checkout
@@ -38,4 +39,9 @@ jobs:
 
       - name: Publish to GitHub Packages
         run: dotnet nuget push "./artifacts/*.nupkg" --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key "${{ secrets.GITHUB_TOKEN }}" --skip-duplicate
+
+      - name: Publish to Azure Artifacts
+        env:
+          AZURE_DEVOPS_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
+        run: dotnet nuget push "./artifacts/*.nupkg" --source "https://pkgs.dev.azure.com/commergent/InternalPackages/_packaging/MainFeed/nuget/v3/index.json" --api-key "$AZURE_DEVOPS_PAT" --skip-duplicate
       
