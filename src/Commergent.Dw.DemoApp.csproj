@@ -8,7 +8,7 @@
         <InformationalVersion>$(Version)</InformationalVersion>
         <Title>DemoApp</Title>
         <Description>Custom development</Description>
-        <Authors>Emil Dumitrescu</Authors>
+        <Authors>Commergent</Authors>
         <RepositoryUrl>https://github.com/emil-dumitrescu/Dw-Demo-Package</RepositoryUrl>
     </PropertyGroup>
 
@@ -30,6 +30,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Dapper" Version="2.1.66" />
       <PackageReference Include="Dynamicweb.Ecommerce" Version="10.10.0" />
     </ItemGroup>
 

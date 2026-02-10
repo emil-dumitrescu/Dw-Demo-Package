@@ -1,4 +1,0 @@
-Something line 1
-Something line 2
-Something line 3
-END

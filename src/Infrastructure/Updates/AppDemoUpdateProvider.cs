@@ -3,7 +3,7 @@ using System;
 
 namespace Commergent.Dw.DemoApp.Infrastructure.Updates;
 
-public class AppUpdateProvider : UpdateProvider
+public class AppDemoUpdateProvider : UpdateProvider
 {
     public override IEnumerable<Update> GetUpdates() => new List<Update>
     {
